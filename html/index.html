@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>WebComponent os window</title>
+        <script type="module" src="../src/index.js"></script>
+        <style>
+            os-window {
+                vertical-align: top;
+            }
+            .control {
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="control">
+            light <input type="range" id="themeToggle" min="0" max="1" step="1" value="0"> dark
+        </div>
+        <div class="hover">
+            no hover <input type="range" id="hoverToggle" min="0" max="1" step="1" value="0"> hover
+        </div>
+        <div class="interaction">
+            no interaction <input type="range" id="interactionToggle" min="0" max="1" step="1" value="0"> interaction
+        </div>
+        <div class="state">
+             maximized <input type="range" id="stateToggle" min="0" max="1" step="1" value="0"> minimized
+        </div>
+        <script>
+            document.querySelector('#themeToggle').addEventListener('change', function (e) {
+                var newValue = e.target.valueAsNumber;
+                var themes = [ 'light', 'dark' ];
+                document.querySelectorAll('os-window').forEach(function(e) {
+                    e.theme = themes[newValue];
+                });
+            });
+
+            document.querySelector('#hoverToggle').addEventListener('change', function (e) {
+                var newValue = e.target.valueAsNumber;
+                document.querySelectorAll('os-window').forEach(function(e) {
+                    e.hover = (newValue !== 0);
+                });
+            });
+
+            document.querySelector('#interactionToggle').addEventListener('change', function (e) {
+                var newValue = e.target.valueAsNumber;
+                document.querySelectorAll('os-window').forEach(function(e) {
+                    e.interactive = (newValue !== 0)
+                });
+            });
+
+            document.querySelector('#stateToggle').addEventListener('change', function (e) {
+                var newValue = e.target.valueAsNumber;
+                var states = [ 'maximized', 'minimized' ];
+                document.querySelectorAll('os-window').forEach(function(e) {
+                    e.windowState = states[newValue];
+                });
+            });
+
+        </script>
+        <os-window id="win-1" os-theme="" window-title="Dark window theme example with a long title">
+            Hello World
+        </os-window>
+        <os-window id="win-1" os-theme="" theme="" window-title="Dark window theme example with a long title">
+            Hello World
+        </os-window>
+        <os-window id="win-2" window-title="Light theme" theme="light">
+Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti. Mauris vitae lorem sapien. Duis ut sem suscipit, dignissim purus vitae, venenatis ante. Etiam ultrices sem id ligula mattis tristique hendrerit ut nisi. Duis ac enim interdum, aliquet libero vitae, accumsan nunc. Donec id felis non lacus aliquet ultrices.<!--}}}-->
+        </os-window>
+        <script>
+            customElements.whenDefined('os-window').then(() => {
+                document.querySelector('#win-1').addEventListener('titleChange', function (e) {
+                    console.log('title changed from "' + e.detail.oldTitle + '" to "' + e.detail.newTitle + '"');
+                });
+                document.querySelector('#win-1').addEventListener('themeChange', function (e) {
+                    console.log('theme changed from "' + e.detail.oldTheme + '" to "' + e.detail.newTheme + '"');
+                });
+                document.querySelector('#win-1').addEventListener('hoverChange', function (e) {
+                    console.log('hover changed from "' + e.detail.oldValue + '" to "' + e.detail.newValue + '"');
+                });
+                document.querySelector('#win-1').addEventListener('interactionChange', function (e) {
+                    console.log('interaction changed from "' + e.detail.oldValue + '" to "' + e.detail.newValue + '"');
+                });
+                document.querySelector('#win-1').addEventListener('stateChange', function (e) {
+                    console.log('state changed from "' + e.detail.oldState + '" to "' + e.detail.newState + '"');
+                });
+                document.querySelector('#win-1').addEventListener('osThemeChange', function (e) {
+                    console.log('osTheme changed from "' + e.detail.oldOsTheme + '" to "' + e.detail.newOsTheme + '"');
+                });
+
+                var win3 = document.createElement('os-window');
+                win3.appendChild(document.createTextNode('window contents'));
+                win3.windowTitle="foo";
+                win3.theme = "light";
+                win3.windowState = 'minimized';
+                win3.hover = false;
+                win3.interactive = true;
+                document.body.appendChild(win3);
+            })
+        </script>
+    </body>
+</html>
+
