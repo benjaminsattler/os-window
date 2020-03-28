@@ -12,7 +12,6 @@
     "license": "ISC",
     "devDependencies": {
         "chai": "^4.2.0",
-        "jsdom": "^16.2.1",
         "mocha": "^7.1.1",
         "mocha-chrome": "^2.2.0"
     }
