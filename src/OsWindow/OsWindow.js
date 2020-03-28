@@ -219,6 +219,10 @@ const removeEventHandlers = function (instance) {
     instance.shadow.querySelector('.window-title-button__maximize').removeEventHandlers('click', onMaximizeClick.bind(instance));
 }
 
+const updateWindowTitle = function(newTitle, instance) {
+    instance.shadow.querySelector('#window-title-text').innerText = newTitle;
+}
+
 export default class OsWindow extends HTMLElement {
     constructor() {
         super();
@@ -229,7 +233,7 @@ export default class OsWindow extends HTMLElement {
     connectedCallback() {
         if (this.isConnected) {
             addEventHandlers(this, this.shadow);
-            this.shadow.getElementById('window-title-text').innerText = this.windowTitle;
+            updateWindowTitle(this.windowTitle, this);
         } else {
             // TODO: this does not work
             removeEventHandlers(this, this.shadow);
@@ -269,6 +273,7 @@ export default class OsWindow extends HTMLElement {
                     oldTitle: oldValue,
                     newTitle: newValue,
                 });
+                updateWindowTitle(newValue, this);
             break;
             case 'os-theme':
                 triggerEvent(this, 'osThemeChange', {
