@@ -1,1 +1,0 @@
-global.HTMLElement = class HTMLElement {}

@@ -292,13 +292,16 @@ export default class OsWindow extends HTMLElement {
 
     set theme(theme) {
         if (this.supportedThemes.indexOf(theme) === -1) {
-            throw new RangeError(`Unsupported theme ${theme}`);
+            throw new RangeError(`Unsupported theme`);
         }
         this.setAttribute('theme', theme);
     }
 
     get theme() {
         if (this.hasAttribute('theme')) {
+            if (this.supportedThemes.indexOf(this.getAttribute('theme')) === -1) {
+                return this.defaultTheme;
+            }
             return this.getAttribute('theme');
         }
         return this.defaultTheme;
@@ -314,14 +317,17 @@ export default class OsWindow extends HTMLElement {
 
     set osTheme(osTheme) {
         if (this.supportedOsThemes.indexOf(osTheme) === -1) {
-            throw new RangeError(`Unsupported os-theme ${osTheme}`);
+            throw new RangeError('Unsupported os-theme');
         }
         this.setAttribute('os-theme', osTheme);
     }
 
     get osTheme() {
-        if (this.hasAttribute('osTheme')) {
-            return this.getAttribute('osTheme');
+        if (this.hasAttribute('os-theme')) {
+            if (this.supportedOsThemes.indexOf(this.getAttribute('os-theme')) === -1) {
+                return this.defaultOsTheme;
+            }
+            return this.getAttribute('os-theme');
         }
         return this.defaultOsTheme;
     }
@@ -336,6 +342,9 @@ export default class OsWindow extends HTMLElement {
 
     get windowState() {
         if (this.hasAttribute('window-state')) {
+            if (this.supportedWindowStates.indexOf(this.getAttribute('window-state')) === -1) {
+                return this.defaultWindowState;
+            }
             return this.getAttribute('window-state');
         }
         return this.defaultWindowState;
@@ -343,7 +352,7 @@ export default class OsWindow extends HTMLElement {
 
     set windowState(windowState) {
         if (this.supportedWindowStates.indexOf(windowState) === -1) {
-            throw new RangeError(`Unsupported window state ${windowState}`);
+            throw new RangeError('Unsupported window state');
         }
         this.setAttribute('window-state', windowState);
     }
@@ -358,7 +367,7 @@ export default class OsWindow extends HTMLElement {
 
     set hover(value) {
         if (!!value) {
-            this.setAttribute('hover', '');
+            this.setAttribute('hover', 'hover');
         } else {
             this.removeAttribute('hover');
         }
@@ -370,7 +379,7 @@ export default class OsWindow extends HTMLElement {
 
     set interactive(value) {
         if (!!value) {
-            this.setAttribute('interactive', '');
+            this.setAttribute('interactive', 'interactive');
         } else {
             this.removeAttribute('interactive');
         }
@@ -378,10 +387,6 @@ export default class OsWindow extends HTMLElement {
 
     get interactive() {
         return this.hasAttribute('interactive');
-    }
-
-    get defaultWindowTitle() {
-        return '';
     }
 
     get windowTitle() {
