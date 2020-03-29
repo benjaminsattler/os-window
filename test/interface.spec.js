@@ -1,4 +1,4 @@
-describe('OsWindow', () => {
+describe('interface', () => {
     it('is defined as custom element', () => {
         chai.expect(window.customElements.get('os-window')).to.be.a('Function')
     });

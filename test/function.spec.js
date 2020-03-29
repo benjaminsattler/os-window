@@ -48,6 +48,16 @@ describe('maximize button', () => {
             maximizeButton.click();
             chai.expect(sut.windowState).to.equal('maximized');
         });
+
+        it('maximizes the minimized window', () => {
+            sut.interactive = true;
+            sut.windowState = 'minimized';
+            const maximizeButton = sut.shadow.querySelector('.window-title-button__maximize');
+            maximizeButton.click();
+            const slotWrapper = sut.shadow.querySelector('.window-content-slot-wrapper');
+            const slotWrapperHeight = window.getComputedStyle(slotWrapper).height;
+            chai.expect(slotWrapperHeight).to.not.equal('0px');
+        });
     });
 });
 
@@ -83,6 +93,16 @@ describe('minimize button', () => {
             const minimizeButton = sut.shadow.querySelector('.window-title-button__minimize');
             minimizeButton.click();
             chai.expect(sut.windowState).to.equal('minimized');
+        });
+
+        it('minimizes the maximized window', () => {
+            sut.interactive = true;
+            sut.windowState = 'maximized';
+            const minimizeButton = sut.shadow.querySelector('.window-title-button__minimize');
+            minimizeButton.click();
+            const slotWrapper = sut.shadow.querySelector('.window-content-slot-wrapper');
+            const slotWrapperHeight = window.getComputedStyle(slotWrapper).height;
+            chai.expect(slotWrapperHeight).to.equal('0px');
         });
     });
 });
