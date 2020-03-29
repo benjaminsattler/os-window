@@ -4,24 +4,24 @@
     <meta charset="utf-8" />
     <title>Mocha Tests</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
   </head>
   <body>
     <div id="mocha"></div>
 
-    <script src="../../node_modules/mocha/mocha.js"></script>
-    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
 
     <script class="mocha-init">
       mocha.setup('bdd');
       mocha.checkLeaks();
     </script>
     <!-- Start SUT -->
-    <script type="module" src="../../src/index.js"></script>
+    <script type="module" src="../src/index.js"></script>
     <!-- End SUT -->
 
     <!-- START Test files -->
-    <script type="module" src="./osWindow.spec.js"></script>
+    <script type="module" src="./interface.spec.js"></script>
     <!-- END Test files -->
 
     <script type="module" class="mocha-exec">

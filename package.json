@@ -5,8 +5,7 @@
     "description": "",
     "scripts": {
         "dev": "python -m SimpleHTTPServer 8000",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "unit": "./test/unit.sh"
+        "test": "./test/runTests.sh"
     },
     "author": "",
     "license": "ISC",
