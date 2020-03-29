@@ -177,9 +177,9 @@ let getShadowHtml = function(instance) {
 <div class="window-wrapper">
     <div class="window-title-bar">
         <div class="window-title-buttons">
-            <button class="window-title-button window-title-button__close"></button>
-            <button class="window-title-button window-title-button__minimize"></button>
-            <button class="window-title-button window-title-button__maximize"></button>
+            <button type="button" class="window-title-button window-title-button__close"></button>
+            <button type="button" class="window-title-button window-title-button__minimize"></button>
+            <button type="button" class="window-title-button window-title-button__maximize"></button>
         </div>
         <div class="window-title-text" id="window-title-text"></div>
     </div>
@@ -197,14 +197,14 @@ const triggerEvent = function (instance, name, detail) {
 const onMinimizeClick = function(e) {
     const wrapper = this.shadow.querySelector(':host([interactive]) .window-wrapper');
     if (wrapper) {
-        this.setAttribute('window-state', 'minimized');
+        this.windowState = 'minimized';
     }
 }
 
 const onMaximizeClick = function(e) {
     const wrapper = this.shadow.querySelector(':host([interactive]) .window-wrapper');
     if (wrapper) {
-        this.setAttribute('window-state', 'maximized');
+        this.windowState = 'maximized';
     }
 }
 
