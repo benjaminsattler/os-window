@@ -232,16 +232,8 @@ export default class OsWindow extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'closed' });
         this.shadow.innerHTML = getShadowHtml(this);
-    }
-
-    connectedCallback() {
-        if (this.isConnected) {
-            addEventHandlers(this, this.shadow);
-            updateWindowTitle(this.windowTitle, this);
-        } else {
-            // TODO: this does not work
-            removeEventHandlers(this, this.shadow);
-        }
+        addEventHandlers(this, this.shadow);
+        updateWindowTitle(this.windowTitle, this);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
