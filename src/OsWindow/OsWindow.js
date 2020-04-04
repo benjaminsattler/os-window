@@ -234,15 +234,13 @@ export default class OsWindow extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      // TODO this is not fired
-      case 'hoverChange':
+      case 'hover':
         triggerEvent(this, 'hoverChange', {
           oldValue,
           newValue,
         });
         break;
-      // TODO this is not fired
-      case 'interactionChange':
+      case 'interactive':
         triggerEvent(this, 'interactionChange', {
           oldValue,
           newValue,
