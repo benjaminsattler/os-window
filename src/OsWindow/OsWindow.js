@@ -1,5 +1,7 @@
-let getShadowHtml = function(instance) {
-        return `
+/* eslint-disable no-param-reassign */
+
+const getShadowHtml = function getShadowHtml() {
+  return `
 <style>
     /****** generic styles ******/
     :host {
@@ -159,7 +161,7 @@ let getShadowHtml = function(instance) {
     :host([os-theme="mac"]) .window-title-text,
     :host([theme="light"]) .window-title-text,
     :host([theme="light"][os-theme="mac"]) .window-title-text {
-        color: var(--mac-window-theme-light-font-color);
+        color: vr(--mac-window-theme-light-font-color);
         background: var(--mac-window-theme-light-background-color);
     }
 
@@ -192,216 +194,211 @@ let getShadowHtml = function(instance) {
     </div>
 </div>
     `;
-}
+};
 
-const triggerEvent = function (instance, name, detail) {
-    instance.dispatchEvent(new CustomEvent(name, { detail }));
-}
+const triggerEvent = function triggerEvent(instance, name, detail) {
+  instance.dispatchEvent(new CustomEvent(name, { detail }));
+};
 
-const onMinimizeClick = function(e) {
-    const wrapper = this.shadow.querySelector(':host([interactive]) .window-wrapper');
-    if (wrapper) {
-        this.windowState = 'minimized';
-    }
-}
+const onMinimizeClick = function onMinimizeClick() {
+  const wrapper = this.shadow.querySelector(':host([interactive]) .window-wrapper');
+  if (wrapper) {
+    this.windowState = 'minimized';
+  }
+};
 
-const onMaximizeClick = function(e) {
-    const wrapper = this.shadow.querySelector(':host([interactive]) .window-wrapper');
-    if (wrapper) {
-        this.windowState = 'maximized';
-    }
-}
+const onMaximizeClick = function onMaximizeClick() {
+  const wrapper = this.shadow.querySelector(':host([interactive]) .window-wrapper');
+  if (wrapper) {
+    this.windowState = 'maximized';
+  }
+};
 
-const addEventHandlers = function (instance) {
-    instance.shadow.querySelector('.window-title-button__minimize').addEventListener('click', onMinimizeClick.bind(instance));
-    instance.shadow.querySelector('.window-title-button__maximize').addEventListener('click', onMaximizeClick.bind(instance));
-}
+const addEventHandlers = function addEventHandlers(instance) {
+  instance.shadow.querySelector('.window-title-button__minimize').addEventListener('click', onMinimizeClick.bind(instance));
+  instance.shadow.querySelector('.window-title-button__maximize').addEventListener('click', onMaximizeClick.bind(instance));
+};
 
-const removeEventHandlers = function (instance) {
-    instance.shadow.querySelector('.window-title-button__minimize').removeEventListener('click', onMinimizeClick.bind(instance));
-
-    instance.shadow.querySelector('.window-title-button__maximize').removeEventHandlers('click', onMaximizeClick.bind(instance));
-}
-
-const updateWindowTitle = function(newTitle, instance) {
-    instance.shadow.querySelector('#window-title-text').innerText = newTitle;
-}
+const updateWindowTitle = function updateWindowTitle(newTitle, instance) {
+  instance.shadow.querySelector('#window-title-text').innerText = newTitle;
+};
 
 export default class OsWindow extends HTMLElement {
-    constructor() {
-        super();
-        this.shadow = this.attachShadow({ mode: 'closed' });
-        this.shadow.innerHTML = getShadowHtml(this);
-        addEventHandlers(this, this.shadow);
-        updateWindowTitle(this.windowTitle, this);
-    }
+  constructor() {
+    super();
+    this.shadow = this.attachShadow({ mode: 'closed' });
+    this.shadow.innerHTML = getShadowHtml(this);
+    addEventHandlers(this, this.shadow);
+    updateWindowTitle(this.windowTitle, this);
+  }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            // TODO this is not fired
-            case 'hoverChange':
-                triggerEvent(this, 'hoverChange', {
-                    oldValue,
-                    newValue,
-                });
-            break;
-            // TODO this is not fired
-            case 'interactionChange':
-                triggerEvent(this, 'interactionChange', {
-                    oldValue,
-                    newValue,
-                });
-            break;
-            case 'theme':
-                triggerEvent(this, 'themeChange', {
-                    oldTheme: oldValue,
-                    newTheme: newValue,
-                });
-            break;
-            case 'window-state':
-                triggerEvent(this, 'windowStateChange', {
-                    oldState: oldValue,
-                    newState: newValue,
-                });
-            break;
-            case 'window-title':
-                triggerEvent(this, 'windowTitleChange', {
-                    oldTitle: oldValue,
-                    newTitle: newValue,
-                });
-                updateWindowTitle(newValue, this);
-            break;
-            case 'os-theme':
-                triggerEvent(this, 'osThemeChange', {
-                    oldOsTheme: oldValue,
-                    newOsTheme: newValue,
-                });
-            break;
-        }
+  attributeChangedCallback(name, oldValue, newValue) {
+    switch (name) {
+      // TODO this is not fired
+      case 'hoverChange':
+        triggerEvent(this, 'hoverChange', {
+          oldValue,
+          newValue,
+        });
+        break;
+      // TODO this is not fired
+      case 'interactionChange':
+        triggerEvent(this, 'interactionChange', {
+          oldValue,
+          newValue,
+        });
+        break;
+      case 'theme':
+        triggerEvent(this, 'themeChange', {
+          oldTheme: oldValue,
+          newTheme: newValue,
+        });
+        break;
+      case 'window-state':
+        triggerEvent(this, 'windowStateChange', {
+          oldState: oldValue,
+          newState: newValue,
+        });
+        break;
+      case 'window-title':
+        triggerEvent(this, 'windowTitleChange', {
+          oldTitle: oldValue,
+          newTitle: newValue,
+        });
+        updateWindowTitle(newValue, this);
+        break;
+      case 'os-theme':
+        triggerEvent(this, 'osThemeChange', {
+          oldOsTheme: oldValue,
+          newOsTheme: newValue,
+        });
+        break;
+      default:
     }
+  }
 
-    static get observedAttributes() {
-        return [
-            'hover',
-            'interactive',
-            'theme',
-            'window-title',
-            'window-state',
-            'os-theme',
-        ];
-    }
+  static get observedAttributes() {
+    return [
+      'hover',
+      'interactive',
+      'theme',
+      'window-title',
+      'window-state',
+      'os-theme',
+    ];
+  }
 
-    set theme(theme) {
-        if (this.supportedThemes.indexOf(theme) === -1) {
-            throw new RangeError(`Unsupported theme`);
-        }
-        this.setAttribute('theme', theme);
+  set theme(theme) {
+    if (OsWindow.supportedThemes.indexOf(theme) === -1) {
+      throw new RangeError('Unsupported theme');
     }
+    this.setAttribute('theme', theme);
+  }
 
-    get theme() {
-        if (this.hasAttribute('theme')) {
-            if (this.supportedThemes.indexOf(this.getAttribute('theme')) === -1) {
-                return this.defaultTheme;
-            }
-            return this.getAttribute('theme');
-        }
-        return this.defaultTheme;
+  get theme() {
+    if (this.hasAttribute('theme')) {
+      if (OsWindow.supportedThemes.indexOf(this.getAttribute('theme')) === -1) {
+        return OsWindow.defaultTheme;
+      }
+      return this.getAttribute('theme');
     }
+    return OsWindow.defaultTheme;
+  }
 
-    get supportedThemes() {
-        return ['light', 'dark'];
-    }
+  static get supportedThemes() {
+    return ['light', 'dark'];
+  }
 
-    get defaultTheme() {
-        return this.supportedThemes[0];
-    }
+  static get defaultTheme() {
+    return OsWindow.supportedThemes[0];
+  }
 
-    set osTheme(osTheme) {
-        if (this.supportedOsThemes.indexOf(osTheme) === -1) {
-            throw new RangeError('Unsupported os-theme');
-        }
-        this.setAttribute('os-theme', osTheme);
+  set osTheme(osTheme) {
+    if (OsWindow.supportedOsThemes.indexOf(osTheme) === -1) {
+      throw new RangeError('Unsupported os-theme');
     }
+    this.setAttribute('os-theme', osTheme);
+  }
 
-    get osTheme() {
-        if (this.hasAttribute('os-theme')) {
-            if (this.supportedOsThemes.indexOf(this.getAttribute('os-theme')) === -1) {
-                return this.defaultOsTheme;
-            }
-            return this.getAttribute('os-theme');
-        }
-        return this.defaultOsTheme;
+  get osTheme() {
+    if (this.hasAttribute('os-theme')) {
+      if (OsWindow.supportedOsThemes.indexOf(this.getAttribute('os-theme')) === -1) {
+        return OsWindow.defaultOsTheme;
+      }
+      return this.getAttribute('os-theme');
     }
+    return OsWindow.defaultOsTheme;
+  }
 
-    get supportedOsThemes() {
-        return ['mac'];
-    }
+  static get supportedOsThemes() {
+    return ['mac'];
+  }
 
-    get defaultOsTheme() {
-        return this.supportedOsThemes[0];
-    }
+  static get defaultOsTheme() {
+    return OsWindow.supportedOsThemes[0];
+  }
 
-    get windowState() {
-        if (this.hasAttribute('window-state')) {
-            if (this.supportedWindowStates.indexOf(this.getAttribute('window-state')) === -1) {
-                return this.defaultWindowState;
-            }
-            return this.getAttribute('window-state');
-        }
-        return this.defaultWindowState;
+  get windowState() {
+    if (this.hasAttribute('window-state')) {
+      if (OsWindow.supportedWindowStates.indexOf(this.getAttribute('window-state')) === -1) {
+        return OsWindow.defaultWindowState;
+      }
+      return this.getAttribute('window-state');
     }
+    return OsWindow.defaultWindowState;
+  }
 
-    set windowState(windowState) {
-        if (this.supportedWindowStates.indexOf(windowState) === -1) {
-            throw new RangeError('Unsupported window state');
-        }
-        this.setAttribute('window-state', windowState);
+  set windowState(windowState) {
+    if (OsWindow.supportedWindowStates.indexOf(windowState) === -1) {
+      throw new RangeError('Unsupported window state');
     }
+    this.setAttribute('window-state', windowState);
+  }
 
-    get defaultWindowState() {
-        return this.supportedWindowStates[0];
-    }
+  static get defaultWindowState() {
+    return OsWindow.supportedWindowStates[0];
+  }
 
-    get supportedWindowStates() {
-        return ['maximized', 'minimized'];
-    }
+  static get supportedWindowStates() {
+    return ['maximized', 'minimized'];
+  }
 
-    set hover(value) {
-        if (!!value) {
-            this.setAttribute('hover', 'hover');
-        } else {
-            this.removeAttribute('hover');
-        }
+  set hover(value) {
+    if (value) {
+      this.setAttribute('hover', 'hover');
+    } else {
+      this.removeAttribute('hover');
     }
+  }
 
-    get hover() {
-        return this.hasAttribute('hover');
-    }
+  get hover() {
+    return this.hasAttribute('hover');
+  }
 
-    set interactive(value) {
-        if (!!value) {
-            this.setAttribute('interactive', 'interactive');
-        } else {
-            this.removeAttribute('interactive');
-        }
+  set interactive(value) {
+    if (value) {
+      this.setAttribute('interactive', 'interactive');
+    } else {
+      this.removeAttribute('interactive');
     }
+  }
 
-    get interactive() {
-        return this.hasAttribute('interactive');
-    }
+  get interactive() {
+    return this.hasAttribute('interactive');
+  }
 
-    get windowTitle() {
-        if (this.hasAttribute('window-title')) {
-            return this.getAttribute('window-title');
-        }
-        return this.defaultWindowTitle;
+  get windowTitle() {
+    if (this.hasAttribute('window-title')) {
+      return this.getAttribute('window-title');
     }
+    return OsWindow.defaultWindowTitle;
+  }
 
-    set windowTitle(value) {
-        this.setAttribute('window-title', value);
-    }
+  set windowTitle(value) {
+    this.setAttribute('window-title', value);
+  }
 
-    get defaultWindowTitle() {
-        return '';
-    }
-};
+  static get defaultWindowTitle() {
+    return '';
+  }
+}
