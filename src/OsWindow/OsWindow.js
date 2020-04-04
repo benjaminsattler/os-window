@@ -267,13 +267,13 @@ export default class OsWindow extends HTMLElement {
                 });
             break;
             case 'window-state':
-                triggerEvent(this, 'stateChange', {
+                triggerEvent(this, 'windowStateChange', {
                     oldState: oldValue,
                     newState: newValue,
                 });
             break;
             case 'window-title':
-                triggerEvent(this, 'titleChange', {
+                triggerEvent(this, 'windowTitleChange', {
                     oldTitle: oldValue,
                     newTitle: newValue,
                 });
