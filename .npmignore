@@ -1,3 +1,6 @@
+.git/
+.github/
+.gitignore
 html/
-node_modules/
-webpack.config.js
+node_modules
+test/
