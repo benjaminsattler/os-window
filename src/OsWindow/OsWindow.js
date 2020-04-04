@@ -33,6 +33,10 @@ let getShadowHtml = function(instance) {
         max-height: 100%;
     }
 
+    .window-title-buttons {
+        position: relative;
+    }
+
     :host(:not([window-state="maximized"])) .window-wrapper .window-content-slot-wrapper,
     :host([window-state="maximized"]) .window-wrapper .window-content-slot-wrapper {
         height: auto;
@@ -72,7 +76,7 @@ let getShadowHtml = function(instance) {
         border-radius: calc(var(--mac-window-title-button-diameter) / 2);
         height: var(--mac-window-title-button-diameter);
         width: var(--mac-window-title-button-diameter);
-        margin: calc(var(--mac-window-title-button-diameter) / 5);
+        margin: 0 calc(var(--mac-window-title-button-diameter) / 5);
         font-weight: 600;
         fill: transparent;
         padding: 0 0 0 0;
