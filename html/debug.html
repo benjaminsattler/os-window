@@ -70,7 +70,7 @@ Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti
         <script>
             customElements.whenDefined('os-window').then(() => {
                 document.querySelector('#win-1').addEventListener('windowTitleChange', function (e) {
-                    console.log('title changed from "' + e.detail.oldTitle + '" to "' + e.detail.newTitle + '"');
+                    console.log('title changed from "' + e.detail.oldWindowTitle + '" to "' + e.detail.newWindowTitle + '"');
                 });
                 document.querySelector('#win-1').addEventListener('themeChange', function (e) {
                     console.log('theme changed from "' + e.detail.oldTheme + '" to "' + e.detail.newTheme + '"');
@@ -82,7 +82,7 @@ Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti
                     console.log('interaction changed from "' + e.detail.oldValue + '" to "' + e.detail.newValue + '"');
                 });
                 document.querySelector('#win-1').addEventListener('windowStateChange', function (e) {
-                    console.log('state changed from "' + e.detail.oldState + '" to "' + e.detail.newState + '"');
+                    console.log('state changed from "' + e.detail.oldWindowState + '" to "' + e.detail.newWindowState + '"');
                 });
                 document.querySelector('#win-1').addEventListener('osThemeChange', function (e) {
                     console.log('osTheme changed from "' + e.detail.oldOsTheme + '" to "' + e.detail.newOsTheme + '"');

@@ -236,14 +236,14 @@ export default class OsWindow extends HTMLElement {
     switch (name) {
       case 'hover':
         triggerEvent(this, 'hoverChange', {
-          oldValue,
-          newValue,
+          oldValue: oldValue === 'hover',
+          newValue: newValue === 'hover',
         });
         break;
       case 'interactive':
         triggerEvent(this, 'interactionChange', {
-          oldValue,
-          newValue,
+          oldValue: oldValue === 'interactive',
+          newValue: newValue === 'interactive',
         });
         break;
       case 'theme':
@@ -254,14 +254,14 @@ export default class OsWindow extends HTMLElement {
         break;
       case 'window-state':
         triggerEvent(this, 'windowStateChange', {
-          oldState: oldValue,
-          newState: newValue,
+          oldWindowState: oldValue,
+          newWindowState: newValue,
         });
         break;
       case 'window-title':
         triggerEvent(this, 'windowTitleChange', {
-          oldTitle: oldValue,
-          newTitle: newValue,
+          oldWindowTitle: oldValue,
+          newWindowTitle: newValue,
         });
         updateWindowTitle(newValue, this);
         break;
