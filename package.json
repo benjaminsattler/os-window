@@ -7,6 +7,7 @@
         "dev": "python -m SimpleHTTPServer 8000",
         "test": "./test/runTests.sh"
     },
+    "main": "src/index.js",
     "author": "",
     "license": "ISC",
     "devDependencies": {
