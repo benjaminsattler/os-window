@@ -1,23 +1,61 @@
 {
-    "name": "os-window",
-    "version": "1.0.0",
-    "private": true,
-    "description": "",
-    "scripts": {
-        "dev": "python -m SimpleHTTPServer 8000",
-        "test": "./test/runTests.sh"
-    },
-    "main": "src/index.js",
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "chai": "^4.2.0",
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-mocha": "^6.3.0",
-        "mocha": "^7.1.1",
-        "mocha-chrome": "^2.2.0",
-        "quixote": "^0.14.0"
-    }
+  "name": "os-window",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A web component (also known as custom element) based library which provides window decorations from the most common operating systems.",
+  "keywords": [
+    "web component",
+    "custom element",
+    "window",
+    "chrome",
+    "decoration",
+    "border",
+    "os",
+    "operating system",
+    "mac",
+    "macos",
+    "apple",
+    "html5",
+    "os-window"
+  ],
+  "scripts": {
+    "lint": "eslint src test",
+    "dev": "python -m SimpleHTTPServer 8000",
+    "test": "./test/runTests.sh"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benjaminsattler/os-window.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benjaminsattler/os-window/issues"
+  },
+  "files": [
+    "src/**/*.js"
+  ],
+  "homepage": "https://github.com/benjaminsattler/os-window",
+  "browser": "./src/index.js",
+  "author": {
+    "name": "Benjamin Sattler",
+    "email": "bsattler.inbox@gmail.com"
+  },
+  "directories": {
+    "lib": "./src",
+    "doc": "./doc",
+    "test": "./test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.3",
+    "mocha": "^7.1.1",
+    "mocha-chrome": "^2.2.0",
+    "quixote": "^0.14.0"
+  }
 }

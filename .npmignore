@@ -1,8 +1,0 @@
-.eslintrc.json
-.editorconfig
-.git/
-.github/
-.gitignore
-html/
-node_modules
-test/
