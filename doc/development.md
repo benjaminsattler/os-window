@@ -10,13 +10,13 @@ In order to start developing os-window, first checkout the repository:
 Next make sure to install the development dependencies:
 ```shell
 > cd os-window
-> npm install
+> yarn
 ```
 
 For the next step please make sure to have a working installation of **Python 2.x**. Start the preconfigured python web server to load the development debug HTML page:
 
 ```shell
-> npm run dev
+> yarn dev
 ```
 
 Now you can point your web browser at `http://localhost:8000/html/debug.html` and see the os-window custom element in action. It'll not automatically reload, make sure to refresh the page once you saved your changes.
@@ -27,7 +27,7 @@ In order to run the tests during development, simply type the following command 
 > **Python 2.x** needs to be available during development because it's being used to start a simple web server used during development and for running the tests.
 
 ```shell
-> npm run test
+> yarn test
 ```
 
 ## Running EsLint
@@ -35,7 +35,7 @@ In order to run the tests during development, simply type the following command 
 In order to run EsLint on the source and test files, simply type the following command in your console:
 
 ```shell
-> npm run lint
+> yarn lint
 ```
 
 The linter will also automatically be run in a git hook pre-commit.
@@ -83,7 +83,7 @@ If you are developing in the os-window repository, then you can simply type the 
 > **Python 2.x** needs to be available during development because it's being used to start a simple web server used during development and for running the tests.
 
 ```shell
-> npm run dev
+> yarn dev
 ```
 
 ## More Information
