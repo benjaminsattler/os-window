@@ -27,7 +27,7 @@ yarn add os-window
 
 Include the JavaScript module in your HTML page
 ```html
-<script type="module" src="node_modules/os-window/src/index.js"></script>
+<script type="module" src="node_modules/os-window/main.js"></script>
 ```
 
 Or import the module into your JavaScript code

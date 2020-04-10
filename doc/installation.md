@@ -32,7 +32,7 @@ You can also add os-window directly to your web page:
     <title>...</title>
     <!-- Add this module to your document head -->
     <!-- Notice the value of the 'type' attribute, which needs to be set to 'module' -->
-    <script type="module" src="node_modules/os-window/src/index.js"></script>
+    <script type="module" src="node_modules/os-window/main.js"></script>
   </head>
   <body>
     <os-window></os-window>
