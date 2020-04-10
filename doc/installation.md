@@ -39,3 +39,15 @@ You can also add os-window directly to your web page:
   </body>
 </html>
 ```
+
+### Use the CDN
+
+This project is also published to the CDN unpkg, which enables you to skip any local module installation when including this module in your webpage:
+
+```html
+<!-- Include specific version (recommended) -->
+<script type="module" src="https://unpkg.com/os-window@0.1.1"></script>
+
+<!-- Include latest version (not recommended) -->
+<script type="module" src="https://unpkg.com/os-window"></script>
+```

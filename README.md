@@ -34,7 +34,24 @@ Or import the module into your JavaScript code
 ```javascript
 import 'os-window';
 ```
+
+### Use the CDN
+
+This project is also published to the CDN unpkg, which enables you to skip any local module installation when including this module in your webpage:
+
+```html
+<!-- Include specific version (recommended) -->
+<script type="module" src="https://unpkg.com/os-window@0.1.1"></script>
+
+<!-- Include latest version (not recommended) -->
+<script type="module" src="https://unpkg.com/os-window"></script>
+```
+
 For more information have a look at the [Installation Guide](./doc/installation.md) or the detailled [documentation](./doc/index.md).
+## Demo
+
+Try the latest version of os-window online at <a href="https://js.do/code/427033" target="_blank">https://js.do/code/427033</a>!
+
 ## Examples
 
 This example creates a non-interactive window with light macos theme
