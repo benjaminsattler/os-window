@@ -1,7 +1,7 @@
 # OS-Window Web Component
 ![CI Status](https://github.com/benjaminsattler/os-window/workflows/CI/badge.svg)
 ![MIT License](https://img.shields.io/github/license/benjaminsattler/os-window)
-![npm Bundle Size](https://img.shields.io/bundlephobia/min/os-window")
+![npm Bundle Size](https://img.shields.io/bundlephobia/min/os-window)
 ![npm Version](https://img.shields.io/npm/v/os-window)
 
 > A web component (also known as custom element) based library which provides window decorations from the most common operating systems.
