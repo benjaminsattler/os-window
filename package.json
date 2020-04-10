@@ -1,6 +1,6 @@
 {
   "name": "os-window",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A web component (also known as custom element) based library which provides window decorations from the most common operating systems.",
   "keywords": [
     "web component",
