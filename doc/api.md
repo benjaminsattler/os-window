@@ -77,11 +77,11 @@ win.interactive = false;
 var isInteractive = win.interactive;
 ```
 
-You can also listen for changes to the interaction support setting by registering an event listener for the `interactionChange` event. The old and new values will be passed to the event listener as properties on the `e.detail` object:
+You can also listen for changes to the interaction support setting by registering an event listener for the `interactiveChange` event. The old and new values will be passed to the event listener as properties on the `e.detail` object:
 
 ```javascript
 var win = document.createElement('os-window');
-win.addEventListener('interactionChange', function(e) {
+win.addEventListener('interactiveChange', function(e) {
   // read the old value for the interaction support setting
   console.log('Interaction support was: ' + e.detail.oldValue);
 

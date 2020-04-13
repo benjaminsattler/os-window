@@ -89,13 +89,13 @@ describe('events', () => {
     });
   });
 
-  describe('interactionChange', () => {
+  describe('interactiveChange', () => {
     describe('when the interactive property is changed from true to false', () => {
       it('fires', (done) => {
         const sut = document.createElement('os-window');
         const handler = () => { done(); };
         sut.interactive = true;
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.interactive = false;
       });
 
@@ -107,7 +107,7 @@ describe('events', () => {
           done();
         };
         sut.interactive = true;
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.interactive = false;
       });
     });
@@ -117,7 +117,7 @@ describe('events', () => {
         const sut = document.createElement('os-window');
         const handler = () => { done(); };
         sut.interactive = false;
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.interactive = true;
       });
 
@@ -129,7 +129,7 @@ describe('events', () => {
           done();
         };
         sut.interactive = false;
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.interactive = true;
       });
     });
@@ -139,7 +139,7 @@ describe('events', () => {
         const sut = document.createElement('os-window');
         const handler = () => { done(); };
         sut.setAttribute('interactive', 'interactive');
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.removeAttribute('interactive');
       });
 
@@ -151,7 +151,7 @@ describe('events', () => {
           done();
         };
         sut.setAttribute('interactive', 'interactive');
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.removeAttribute('interactive');
       });
     });
@@ -161,7 +161,7 @@ describe('events', () => {
         const sut = document.createElement('os-window');
         const handler = () => { done(); };
         sut.removeAttribute('interactive');
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.setAttribute('interactive', 'interactive');
       });
 
@@ -173,7 +173,7 @@ describe('events', () => {
           done();
         };
         sut.removeAttribute('interactive');
-        sut.addEventListener('interactionChange', handler);
+        sut.addEventListener('interactiveChange', handler);
         sut.setAttribute('interactive', 'interactive');
       });
     });

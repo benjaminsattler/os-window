@@ -219,7 +219,7 @@ const addEventHandlers = function addEventHandlers(instance) {
   instance.shadow.querySelector('.window-title-button__maximize').addEventListener('click', onMaximizeClick.bind(instance));
 };
 
-const updateWindowTitle = function updateWindowTitle(newTitle, instance) {
+const updateWindowTitle = function updateWindowTitle(instance, newTitle) {
   instance.shadow.querySelector('#window-title-text').innerText = newTitle;
 };
 
@@ -227,9 +227,9 @@ export default class OsWindow extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'closed' });
-    this.shadow.innerHTML = getShadowHtml(this);
-    addEventHandlers(this, this.shadow);
-    updateWindowTitle(this.windowTitle, this);
+    this.shadow.innerHTML = getShadowHtml();
+    addEventHandlers(this);
+    updateWindowTitle(this, this.windowTitle);
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -241,7 +241,7 @@ export default class OsWindow extends HTMLElement {
         });
         break;
       case 'interactive':
-        triggerEvent(this, 'interactionChange', {
+        triggerEvent(this, 'interactiveChange', {
           oldValue: oldValue === 'interactive',
           newValue: newValue === 'interactive',
         });
@@ -263,7 +263,7 @@ export default class OsWindow extends HTMLElement {
           oldWindowTitle: oldValue,
           newWindowTitle: newValue,
         });
-        updateWindowTitle(newValue, this);
+        updateWindowTitle(this, newValue);
         break;
       case 'os-theme':
         triggerEvent(this, 'osThemeChange', {
