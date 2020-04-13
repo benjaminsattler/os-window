@@ -38,7 +38,7 @@
     "main.js"
   ],
   "homepage": "https://github.com/benjaminsattler/os-window",
-  "browser": "main.js",
+  "main": "main.js",
   "author": {
     "name": "Benjamin Sattler",
     "email": "bsattler.inbox@gmail.com"
