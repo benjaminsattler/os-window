@@ -17,10 +17,10 @@ Choose any of the following methods to get started
 Run the following command in your command line to add os-window to your project
 ```shell
 # for NPM
-npm install --save os-window
+> npm install --save os-window
 
 # for YARN
-yarn add os-window
+> yarn add os-window
 ```
 
 ### Include the module
@@ -50,7 +50,7 @@ This project is also published to the CDN unpkg, which enables you to skip any l
 For more information have a look at the [Installation Guide](./doc/installation.md) or the detailled [documentation](./doc/index.md).
 ## Demo
 
-Try the latest version of os-window online at <a href="https://js.do/code/427033" target="_blank">https://js.do/code/427033</a>!
+Try the latest version of os-window online at <a href="https://bit.ly/39Yqb2d" target="_blank">https://bit.ly/39Yqb2d</a>!
 
 ## Examples
 
