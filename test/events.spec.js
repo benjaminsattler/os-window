@@ -44,6 +44,19 @@ describe('events', () => {
       });
     });
 
+    describe('when the hover property does not change', () => {
+      it('does not fire', (done) => {
+        const sut = document.createElement('os-window');
+        const handler = () => {
+          chai.expect.fail();
+        };
+        sut.hover = false;
+        sut.addEventListener('hoverChange', handler);
+        sut.hover = false;
+        setTimeout(done, 500);
+      });
+    });
+
     describe('when the hover attribute is removed', () => {
       it('fires', (done) => {
         const sut = document.createElement('os-window');
@@ -134,6 +147,19 @@ describe('events', () => {
       });
     });
 
+    describe('when the interactive property does not change', () => {
+      it('does not fire', (done) => {
+        const sut = document.createElement('os-window');
+        const handler = () => {
+          chai.expect.fail();
+        };
+        sut.interactive = false;
+        sut.addEventListener('interactiveChange', handler);
+        sut.interactive = false;
+        setTimeout(done, 500);
+      });
+    });
+
     describe('when the interactive attribute is removed', () => {
       it('fires', (done) => {
         const sut = document.createElement('os-window');
@@ -215,6 +241,19 @@ describe('events', () => {
       });
     });
 
+    describe('when the theme property does not change', () => {
+      it('does not fire', (done) => {
+        const sut = document.createElement('os-window');
+        const handler = () => {
+          chai.expect.fail();
+        };
+        sut.theme = 'dark';
+        sut.addEventListener('themeChange', handler);
+        sut.theme = 'dark';
+        setTimeout(done, 500);
+      });
+    });
+
     describe('when the theme attribute is changed', () => {
       it('fires', (done) => {
         const sut = document.createElement('os-window');
@@ -274,6 +313,19 @@ describe('events', () => {
       });
     });
 
+    describe('when the window-state property does not change', () => {
+      it('does not fire', (done) => {
+        const sut = document.createElement('os-window');
+        const handler = () => {
+          chai.expect.fail();
+        };
+        sut.windowState = 'minimized';
+        sut.addEventListener('windowStateChange', handler);
+        sut.windowState = 'minimized';
+        setTimeout(done, 500);
+      });
+    });
+
     describe('when the window-state attribute is changed', () => {
       it('fires', (done) => {
         const sut = document.createElement('os-window');
@@ -317,6 +369,19 @@ describe('events', () => {
         sut.windowTitle = 'old window title';
         sut.addEventListener('windowTitleChange', handler);
         sut.windowTitle = 'new window title';
+      });
+    });
+
+    describe('when the windowTitle property does not change', () => {
+      it('does not fire', (done) => {
+        const sut = document.createElement('os-window');
+        const handler = () => {
+          chai.expect.fail();
+        };
+        sut.windowTitle = 'window title';
+        sut.addEventListener('windowTitleChange', handler);
+        sut.windowTitle = 'window title';
+        setTimeout(done, 500);
       });
     });
 
@@ -374,6 +439,19 @@ describe('events', () => {
             done();
           }
         });
+      });
+    });
+
+    describe('when the os-theme property does not change', () => {
+      it('does not fire', (done) => {
+        const sut = document.createElement('os-window');
+        const handler = () => {
+          chai.expect.fail();
+        };
+        sut.osTheme = 'mac';
+        sut.addEventListener('osThemeChange', handler);
+        sut.osTheme = 'mac';
+        setTimeout(done, 500);
       });
     });
 

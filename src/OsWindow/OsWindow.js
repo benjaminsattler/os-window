@@ -233,6 +233,9 @@ export default class OsWindow extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) {
+      return;
+    }
     switch (name) {
       case 'hover':
         triggerEvent(this, 'hoverChange', {
