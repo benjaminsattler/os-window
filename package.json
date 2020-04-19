@@ -18,7 +18,7 @@
     "os-window"
   ],
   "scripts": {
-    "lint": "eslint main.js src test",
+    "lint": "eslint main.js lib test",
     "dev": "python -m SimpleHTTPServer 8000",
     "test": "./test/runTests.sh",
     "release": "np"
@@ -34,7 +34,7 @@
     "url": "https://github.com/benjaminsattler/os-window/issues"
   },
   "files": [
-    "src/**/*.js",
+    "lib/**/*.js",
     "main.js"
   ],
   "homepage": "https://github.com/benjaminsattler/os-window",
@@ -44,7 +44,7 @@
     "email": "bsattler.inbox@gmail.com"
   },
   "directories": {
-    "lib": "./src",
+    "lib": "./lib",
     "doc": "./doc",
     "test": "./test"
   },

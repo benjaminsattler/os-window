@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import OsWindow from './src/OsWindow/OsWindow.js';
+import OsWindow from './lib/OsWindow/OsWindow.js';
 
 customElements.define('os-window', OsWindow);
 

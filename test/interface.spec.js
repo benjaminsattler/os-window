@@ -1,6 +1,5 @@
 /* eslint-disable import/extensions */
-
-import OsWindow from '../src/OsWindow/OsWindow.js';
+import OsWindow from '../main.js';
 
 describe('interface', () => {
   it('is defined as custom element', () => {
