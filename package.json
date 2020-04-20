@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "eslint main.js lib test",
     "dev": "python -m SimpleHTTPServer 8000",
-    "test": "./test/runTests.sh",
+    "test": "./test/runner.js",
     "release": "np"
   },
   "engines": {
@@ -51,13 +51,15 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
+    "connect": "^3.7.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^4.2.3",
     "mocha": "^7.1.1",
-    "mocha-chrome": "^2.2.0",
     "np": "^5.2.1",
-    "quixote": "^0.14.0"
+    "puppeteer": "^3.0.0",
+    "quixote": "^0.14.0",
+    "serve-static": "^1.14.1"
   }
 }

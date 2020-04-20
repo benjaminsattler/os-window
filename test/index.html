@@ -14,8 +14,11 @@
     <script src="../node_modules/quixote/dist/quixote.js"></script>
 
     <script class="mocha-init">
-      mocha.setup('bdd');
-      mocha.checkLeaks();
+      mocha.setup({
+        ui: 'bdd',
+        checkLeaks: true,
+        reporter: 'spec',
+      });
     </script>
     <!-- Start SUT -->
     <script type="module" src="../main.js"></script>
@@ -29,7 +32,11 @@
     <!-- END Test files -->
 
     <script type="module" class="mocha-exec">
-      mocha.run();
+      mocha.run(() => {
+        if ('mochaFinished' in window) {
+          mochaFinished();
+        }
+      });
     </script>
   </body>
 </html>

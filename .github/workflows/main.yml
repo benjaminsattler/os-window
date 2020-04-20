@@ -10,13 +10,12 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  CHROME_BIN: /usr/bin/chromium-browser
-
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
+    env:
+      PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
