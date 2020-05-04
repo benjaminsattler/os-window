@@ -30,6 +30,16 @@ describe('maximize button', () => {
       maximizeButton.click();
       chai.expect(sut.windowState).to.equal('minimized');
     });
+
+    it('cannot get focus', () => {
+      const maximizeButton = sut.__shadow.querySelector('.window-title-button__maximize');
+      chai.expect(maximizeButton.getAttribute('tabindex')).to.equal('-1');
+    });
+
+    it('is disabled', () => {
+      const maximizeButton = sut.__shadow.querySelector('.window-title-button__maximize');
+      chai.expect(maximizeButton.hasAttribute('disabled')).to.equal(true);
+    });
   });
 
   describe('when interactive', () => {
@@ -75,6 +85,16 @@ describe('minimize button', () => {
       const minimizeButton = sut.__shadow.querySelector('.window-title-button__minimize');
       minimizeButton.click();
       chai.expect(sut.windowState).to.equal('maximized');
+    });
+
+    it('cannot get focus', () => {
+      const minimizeButton = sut.__shadow.querySelector('.window-title-button__minimize');
+      chai.expect(minimizeButton.getAttribute('tabindex')).to.equal('-1');
+    });
+
+    it('is disabled', () => {
+      const minimizeButton = sut.__shadow.querySelector('.window-title-button__minimize');
+      chai.expect(minimizeButton.hasAttribute('disabled')).to.equal(true);
     });
   });
 
