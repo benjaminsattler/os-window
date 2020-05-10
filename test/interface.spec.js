@@ -115,8 +115,14 @@ describe('interface', () => {
     it('changes the attribute \'os-theme\' for valid values', () => {
       const sut = document.createElement('os-window');
       chai.expect(sut.getAttribute('os-theme')).to.equal(null);
-      sut.osTheme = 'mac';
-      chai.expect(sut.getAttribute('os-theme')).to.equal('mac');
+      try {
+        for (let i = 0; i < OsWindow.supportedOsThemes.length; i += 1) {
+          sut.osTheme = OsWindow.supportedOsThemes[i];
+          chai.expect(sut.getAttribute('os-theme')).to.equal(OsWindow.supportedOsThemes[i]);
+        }
+      } catch (e) {
+        chai.expect.fail(e);
+      }
     });
 
     it('throws RangeError for unsupported values', () => {
@@ -184,8 +190,8 @@ describe('interface', () => {
   describe('get supportedOsThemes', () => {
     it('returns an array of all supported os themes', () => {
       chai.expect(OsWindow.supportedOsThemes).to.be.a('Array');
-      chai.expect(OsWindow.supportedOsThemes).to.have.lengthOf(1);
-      chai.expect(OsWindow.supportedOsThemes).to.include.members(['mac']);
+      chai.expect(OsWindow.supportedOsThemes).to.have.lengthOf(2);
+      chai.expect(OsWindow.supportedOsThemes).to.include.members(['mac', 'win-xp']);
     });
   });
 
@@ -273,6 +279,7 @@ describe('interface', () => {
       try {
         for (let i = 0; i < OsWindow.supportedWindowStates.length; i += 1) {
           sut.windowState = OsWindow.supportedWindowStates[i];
+          chai.expect(sut.windowState).to.equal(OsWindow.supportedWindowStates[i]);
         }
       } catch (e) {
         chai.expect.fail(e);

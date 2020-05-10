@@ -6,7 +6,7 @@ Allows to enable support for mouse hover events. This will cause the titlebar bu
 
 An example effect is shown in the images below:
 
-(**left:** hover effect enabled, **right:** hover effect disabled (default)
+(**left:** hover effect enabled, **right:** hover effect disabled (default). The hover effect varies from theme to theme).
 
 ![hover effect enabled](./img/hover.png)
 ![hover effect disabled (default)](./img/nohover.png)
@@ -195,13 +195,14 @@ win.addEventListener('windowTitleChange', function(e) {
 
 ## Operating System Theme
 
-You can change the operating system theme of the window. Currently the only available operating system theme is "mac", which is also the default setting.
+You can change the operating system theme of the window. Currently the available operating system themes are "mac" (default) and "win-xp".
 
 An example of all available operating system theme settings is show in the images below:
 
-(**left:** mac window theme (default))
+(**left:** mac window theme (default), **right** win-xp window theme)
 
 ![mac operating system theme (default)](./img/theme-mac.png)
+![win-xp operating system theme (default)](./img/theme-win-xp.png)
 
 ```html
 <!-- default operating system theme -->
@@ -216,6 +217,11 @@ An example of all available operating system theme settings is show in the image
 <os-window
   os-theme="mac"
 ></os-window>
+
+<!-- win-xp operating system theme -->
+<os-window
+  os-theme="win-xp"
+></os-window>
 ```
 
 You can change the operating system theme through JavaScript:
@@ -225,6 +231,8 @@ var win = document.createElement('os-window');
 
 // To change operating system theme to mac
 win.osTheme = 'mac';
+// To change operating system theme to win-xp
+win.osTheme = 'win-xp';
 
 // To read the operating system theme
 var osTheme = win.osTheme;
@@ -252,8 +260,12 @@ An example of all available combinations of light and dark mode with operating s
 (**left:** light mac window theme (default), **right:** dark mac window theme)
 
 ![light mac operating system theme (default)](./img/macos-light.png)
-![dark mac operating system theme (default)](./img/macos-dark.png)
+![dark mac operating system theme](./img/macos-dark.png)
 
+(**left:** light win-xp window theme (default), **right:** dark win-xp window theme)
+
+![light win-xp operating system theme (default)](./img/win-xp-light.png)
+![dark win-xp operating system theme](./img/win-xp-dark.png)
 ```html
 <!-- default theme -->
 <os-window></os-window>

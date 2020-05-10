@@ -57,6 +57,9 @@ describe('themes', () => {
   let mac_default;
   let mac_light;
   let mac_dark;
+  let winxp_default;
+  let winxp_light;
+  let winxp_dark;
 
   before((done) => {
     frame = quixote.createFrame({
@@ -80,6 +83,9 @@ describe('themes', () => {
     mac_default = frame.get('os-window[os-theme=mac]:not([theme])');
     mac_light = frame.get('os-window[os-theme=mac][theme=light]');
     mac_dark = frame.get('os-window[os-theme=mac][theme=dark]');
+    winxp_default = frame.get('os-window[os-theme=win-xp]:not([theme])');
+    winxp_light = frame.get('os-window[os-theme=win-xp][theme=light]');
+    winxp_dark = frame.get('os-window[os-theme=win-xp][theme=dark]');
   });
 
   describe('default os theme', () => {
@@ -373,6 +379,286 @@ describe('themes', () => {
           const slotWrapper = mac_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
           const foregroundColor = window.getComputedStyle(slotWrapper).getPropertyValue('color');
           chai.expect(foregroundColor).to.equal('rgb(255, 255, 255)');
+        });
+      });
+    });
+  });
+
+  describe('win-xp os theme', () => {
+    describe('default theme', () => {
+      it('is equal to winxp os theme light', () => {
+        assertWindowStyleEqual(winxp_default, winxp_light);
+      });
+    });
+
+    describe('light theme', () => {
+      it('is equal to winxp os theme default', () => {
+        assertWindowStyleEqual(winxp_light, winxp_default);
+      });
+
+      describe('close button', () => {
+        it('has correct position', () => {
+          const closeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__close');
+          chai.expect(closeButton.offsetLeft).to.equal(64);
+          // TODO: This assertion breaks in CI
+          // chai.expect(closeButton.offsetTop).to.equal(14);
+        });
+
+        it('has correct background color', () => {
+          const closeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__close');
+          const backgroundColor = window.getComputedStyle(closeButton).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(239, 83, 74)');
+        });
+
+        it('has correct foreground color', () => {
+          const closeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__close');
+          const foregroundColor = window.getComputedStyle(closeButton).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(255, 255, 255)');
+        });
+      });
+
+      describe('minimize button', () => {
+        it('has correct position', () => {
+          const minimizeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          chai.expect(minimizeButton.offsetLeft).to.equal(2);
+          // TODO: This assertion breaks in CI
+          // chai.expect(minimizeButton.offsetTop).to.equal(14);
+        });
+
+        it('has correct background color', () => {
+          const minimizeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          const backgroundColor = window.getComputedStyle(minimizeButton).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(44, 106, 246)');
+        });
+
+        it('has correct foreground color', () => {
+          const minimizeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          const foregroundColor = window.getComputedStyle(minimizeButton).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(255, 255, 255)');
+        });
+      });
+
+      describe('maximize button', () => {
+        it('has correct position', () => {
+          const maximizeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__maximize');
+          chai.expect(maximizeButton.offsetLeft).to.equal(33);
+          // TODO: This assertion breaks in CI
+          // chai.expect(maximizeButton.offsetTop).to.equal(14);
+        });
+
+        it('has correct background color', () => {
+          const maximizeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__maximize');
+          const backgroundColor = window.getComputedStyle(maximizeButton).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(44, 106, 246)');
+        });
+
+        it('has correct foreground color', () => {
+          const minimizeButton = winxp_light.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          const foregroundColor = window.getComputedStyle(minimizeButton).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(255, 255, 255)');
+        });
+      });
+
+      describe('window title bar', () => {
+        it('has correct height', () => {
+          const titleBar = winxp_light.toDomElement().__shadow.querySelector('.window-title-bar');
+          const height = window.getComputedStyle(titleBar).getPropertyValue('height');
+          chai.expect(height).to.equal('40px');
+        });
+
+        it('has correct background color', () => {
+          const titleBar = winxp_light.toDomElement().__shadow.querySelector('.window-title-bar');
+          const backgroundImage = window.getComputedStyle(titleBar).getPropertyValue('background-image');
+          const backgroundColor = window.getComputedStyle(titleBar).getPropertyValue('background-color');
+          chai.expect(backgroundImage).to.equal('linear-gradient(rgb(48, 118, 222) 0%, rgb(48, 147, 255) 2%, rgb(2, 82, 227) 20%, rgb(5, 106, 255) 94%, rgb(15, 70, 192) 100%)');
+          chai.expect(backgroundColor).to.equal('rgba(0, 0, 0, 0)');
+        });
+
+        it('has correct foreground color', () => {
+          const titleBar = winxp_light.toDomElement().__shadow.querySelector('.window-title-bar');
+          const foregroundColor = window.getComputedStyle(titleBar).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(255, 255, 255)');
+        });
+      });
+
+      describe('window content slot wrapper', () => {
+        it('has correct spacing left', () => {
+          const slotWrapper = winxp_light.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingLeft = window.getComputedStyle(slotWrapper).getPropertyValue('padding-left');
+          chai.expect(paddingLeft).to.equal('16px');
+        });
+
+        it('has correct spacing right', () => {
+          const slotWrapper = winxp_light.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingRight = window.getComputedStyle(slotWrapper).getPropertyValue('padding-right');
+          chai.expect(paddingRight).to.equal('16px');
+        });
+
+        it('has correct spacing top', () => {
+          const slotWrapper = winxp_light.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingTop = window.getComputedStyle(slotWrapper).getPropertyValue('padding-top');
+          chai.expect(paddingTop).to.equal('8px');
+        });
+
+        describe('when minimized', () => {
+          it('has correct spacing top', () => {
+            winxp_light.toDomElement().windowState = 'minimized';
+            const slotWrapper = winxp_light.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+            const paddingTop = window.getComputedStyle(slotWrapper).getPropertyValue('padding-top');
+            chai.expect(paddingTop).to.equal('0px');
+          });
+        });
+
+        it('has correct spacing bottom', () => {
+          const slotWrapper = winxp_light.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingBottom = window.getComputedStyle(slotWrapper).getPropertyValue('padding-bottom');
+          chai.expect(paddingBottom).to.equal('8px');
+        });
+
+        it('has correct background color', () => {
+          const slotWrapper = winxp_light.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const backgroundColor = window.getComputedStyle(slotWrapper).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(235, 232, 215)');
+        });
+
+        it('has correct foreground color', () => {
+          const slotWrapper = winxp_light.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const foregroundColor = window.getComputedStyle(slotWrapper).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(0, 0, 0)');
+        });
+      });
+    });
+
+    describe('dark theme', () => {
+      describe('close button', () => {
+        it('has correct position', () => {
+          const closeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__close');
+          chai.expect(closeButton.offsetLeft).to.equal(64);
+          // TODO: This assertion breaks in CI
+          // chai.expect(closeButton.offsetTop).to.equal(14);
+        });
+
+        it('has correct background color', () => {
+          const closeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__close');
+          const backgroundColor = window.getComputedStyle(closeButton).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(239, 83, 74)');
+        });
+
+        it('has correct foreground color', () => {
+          const closeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__close');
+          const foregroundColor = window.getComputedStyle(closeButton).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(255, 255, 255)');
+        });
+      });
+
+      describe('minimize button', () => {
+        it('has correct position', () => {
+          const minimizeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          chai.expect(minimizeButton.offsetLeft).to.equal(2);
+          // TODO: This assertion breaks in CI
+          // chai.expect(minimizeButton.offsetTop).to.equal(14);
+        });
+
+        it('has correct background color', () => {
+          const minimizeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          const backgroundColor = window.getComputedStyle(minimizeButton).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(212, 210, 224)');
+        });
+
+        it('has correct foreground color', () => {
+          const minimizeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          const foregroundColor = window.getComputedStyle(minimizeButton).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(79, 74, 89)');
+        });
+      });
+
+      describe('maximize button', () => {
+        it('has correct position', () => {
+          const maximizeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__maximize');
+          chai.expect(maximizeButton.offsetLeft).to.equal(33);
+          // TODO: This assertion breaks in CI
+          // chai.expect(maximizeButton.offsetTop).to.equal(14);
+        });
+
+        it('has correct background color', () => {
+          const maximizeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__maximize');
+          const backgroundColor = window.getComputedStyle(maximizeButton).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(212, 210, 224)');
+        });
+
+        it('has correct foreground color', () => {
+          const minimizeButton = winxp_dark.toDomElement().__shadow.querySelector('.window-title-button__minimize');
+          const foregroundColor = window.getComputedStyle(minimizeButton).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(79, 74, 89)');
+        });
+      });
+
+      describe('window title bar', () => {
+        it('has correct height', () => {
+          const titleBar = winxp_dark.toDomElement().__shadow.querySelector('.window-title-bar');
+          const height = window.getComputedStyle(titleBar).getPropertyValue('height');
+          chai.expect(height).to.equal('40px');
+        });
+
+        it('has correct background color', () => {
+          const titleBar = winxp_dark.toDomElement().__shadow.querySelector('.window-title-bar');
+          const backgroundImage = window.getComputedStyle(titleBar).getPropertyValue('background-image');
+          const backgroundColor = window.getComputedStyle(titleBar).getPropertyValue('background-color');
+          chai.expect(backgroundImage).to.equal('linear-gradient(rgb(134, 133, 139) 0%, rgb(239, 238, 241) 2%, rgb(166, 165, 186) 20%, rgb(252, 253, 255) 94%, rgb(132, 132, 141) 100%)');
+          chai.expect(backgroundColor).to.equal('rgba(0, 0, 0, 0)');
+        });
+
+        it('has correct foreground color', () => {
+          const titleBar = winxp_dark.toDomElement().__shadow.querySelector('.window-title-bar');
+          const foregroundColor = window.getComputedStyle(titleBar).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(0, 0, 0)');
+        });
+      });
+
+      describe('window content slot wrapper', () => {
+        it('has correct spacing left', () => {
+          const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingLeft = window.getComputedStyle(slotWrapper).getPropertyValue('padding-left');
+          chai.expect(paddingLeft).to.equal('16px');
+        });
+
+        it('has correct spacing right', () => {
+          const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingRight = window.getComputedStyle(slotWrapper).getPropertyValue('padding-right');
+          chai.expect(paddingRight).to.equal('16px');
+        });
+
+        it('has correct spacing top', () => {
+          const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingTop = window.getComputedStyle(slotWrapper).getPropertyValue('padding-top');
+          chai.expect(paddingTop).to.equal('8px');
+        });
+
+        describe('when minimized', () => {
+          it('has correct spacing top', () => {
+            winxp_dark.toDomElement().windowState = 'minimized';
+            const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+            const paddingTop = window.getComputedStyle(slotWrapper).getPropertyValue('padding-top');
+            chai.expect(paddingTop).to.equal('0px');
+          });
+        });
+
+        it('has correct spacing bottom', () => {
+          const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const paddingBottom = window.getComputedStyle(slotWrapper).getPropertyValue('padding-bottom');
+          chai.expect(paddingBottom).to.equal('8px');
+        });
+
+        it('has correct background color', () => {
+          const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const backgroundColor = window.getComputedStyle(slotWrapper).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgb(235, 232, 215)');
+        });
+
+        it('has correct foreground color', () => {
+          const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
+          const foregroundColor = window.getComputedStyle(slotWrapper).getPropertyValue('color');
+          chai.expect(foregroundColor).to.equal('rgb(0, 0, 0)');
         });
       });
     });

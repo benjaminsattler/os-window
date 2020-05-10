@@ -26,6 +26,13 @@
         <div class="state">
              maximized <input type="range" id="stateToggle" min="0" max="1" step="1" value="0"> minimized
         </div>
+        <div class="osTheme">
+            Os-Theme
+            <select size="1" id="osThemeToggle">
+              <option value="mac" selected>mac</option>
+              <option value="win-xp">win-xp</option>
+            </select>
+        </div>
         <script>
             document.querySelector('#themeToggle').addEventListener('change', function (e) {
                 var newValue = e.target.valueAsNumber;
@@ -57,14 +64,23 @@
                 });
             });
 
+            document.querySelector('#osThemeToggle').addEventListener('change', function (e) {
+                var newValue = e.target.options[e.target.selectedIndex].value;
+                document.querySelectorAll('os-window').forEach(function(e) {
+                    e.osTheme = newValue;
+                });
+            });
         </script>
-        <os-window id="win-1" os-theme="" window-title="Dark window theme example with a long title">
+        <os-window id="win-1" os-theme="" theme="dark" window-title="Dark window theme example with a long title">
             Hello World
         </os-window>
-        <os-window id="win-1" os-theme="" theme="" window-title="Dark window theme example with a long title">
-            Hello World
+        <os-window id="win-2" os-theme="win-xp" style="margin: 2rem;" theme="" window-title="Random Cat Pic">
+          <img src="http://www.randomkittengenerator.com/cats/rotator.php">
         </os-window>
-        <os-window id="win-2" window-title="Light theme" theme="light">
+        <os-window id="win-3" window-title="Light theme" os-theme="win-xp" theme="light">
+Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti. Mauris vitae lorem sapien. Duis ut sem suscipit, dignissim purus vitae, venenatis ante. Etiam ultrices sem id ligula mattis tristique hendrerit ut nisi. Duis ac enim interdum, aliquet libero vitae, accumsan nunc. Donec id felis non lacus aliquet ultrices.<!--}}}-->
+        </os-window>
+        <os-window id="win-4" os-theme="win-xp" window-title="Dark win-xp theme" theme="dark">
 Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti. Mauris vitae lorem sapien. Duis ut sem suscipit, dignissim purus vitae, venenatis ante. Etiam ultrices sem id ligula mattis tristique hendrerit ut nisi. Duis ac enim interdum, aliquet libero vitae, accumsan nunc. Donec id felis non lacus aliquet ultrices.<!--}}}-->
         </os-window>
         <script>
