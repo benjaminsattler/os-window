@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "eslint main.js lib test",
     "dev": "python -m SimpleHTTPServer 8000",
-    "test": "./test/runner.js",
+    "test": "node ./test/runner.js",
     "release": "np"
   },
   "engines": {
@@ -58,8 +58,9 @@
     "husky": "^4.2.3",
     "mocha": "^7.1.1",
     "np": "^5.2.1",
-    "puppeteer": "^3.0.0",
+    "playwright": "^1.0.2",
     "quixote": "^0.14.0",
     "serve-static": "^1.14.1"
-  }
+  },
+  "dependencies": {}
 }
