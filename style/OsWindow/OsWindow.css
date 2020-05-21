@@ -1,0 +1,43 @@
+/* {{{ ***** generic styles ******/
+:host {
+  display: inline-block;
+  transition: width .3s, height .3s;
+}
+
+* {
+  transition: color .1s, background .3s;
+}
+
+.window-wrapper {
+  filter: drop-shadow( 0 2px 2px rgba(0, 0, 0, .3));
+  position: relative;
+  width: 100%;
+  min-width: 100px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.window-title-buttons {
+  position: relative;
+}
+
+.window-content-slot-wrapper {
+  overflow: hidden;
+}
+
+:host(:not([window-state="maximized"])) .window-wrapper .window-content-slot-wrapper,
+:host([window-state="maximized"]) .window-wrapper .window-content-slot-wrapper {
+  height: auto;
+}
+
+:host([window-state="minimized"]) .window-wrapper .window-content-slot-wrapper {
+  height: 0;
+  padding-bottom: 0;
+}
+
+.aria-label {
+  display:none;
+}
+/* }}} */
+
