@@ -18,7 +18,7 @@
     "os-window"
   ],
   "scripts": {
-    "lint": "eslint main.js lib test",
+    "lint": "eslint main.js lib test --ext .js,.ts",
     "dev": "python -m SimpleHTTPServer 8000",
     "test": "node ./test/runner.js",
     "release": "np"
@@ -35,10 +35,13 @@
   },
   "files": [
     "lib/**/*.js",
-    "main.js"
+    "lib/**/*.d.ts",
+    "main.js",
+    "main.d.ts"
   ],
   "homepage": "https://github.com/benjaminsattler/os-window",
   "main": "main.js",
+  "types": "main.d.ts",
   "author": {
     "name": "Benjamin Sattler",
     "email": "bsattler.inbox@gmail.com"
@@ -50,6 +53,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
     "chai": "^4.2.0",
     "connect": "^3.7.0",
     "eslint": "^6.8.0",
@@ -60,7 +65,8 @@
     "np": "^5.2.1",
     "playwright": "^1.0.2",
     "quixote": "^0.14.0",
-    "serve-static": "^1.14.1"
+    "serve-static": "^1.14.1",
+    "typescript": "^3.9.3"
   },
   "dependencies": {}
 }
