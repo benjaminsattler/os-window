@@ -1,0 +1,116 @@
+/* {{{ ****** mac theme styles ******/
+:host([os-theme="mac"]) .window-wrapper {
+  border-radius: var(--mac-window-border-radius);
+}
+
+:host([os-theme="mac"]) .window-title-bar {
+  height: var(--window-title-bar-height);
+  line-height: var(--mac-window-title-bar-height);
+  display: flex;
+}
+
+:host([os-theme="mac"]) .window-title-buttons {
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+:host([os-theme="mac"]) .window-title-button {
+  border-width: 0;
+  border-radius: calc(var(--mac-window-title-button-diameter) / 2);
+  height: var(--mac-window-title-button-diameter);
+  width: var(--mac-window-title-button-diameter);
+  margin: 0 calc(var(--mac-window-title-button-diameter) / 5);
+  font-weight: 600;
+  fill: transparent;
+  padding: 0 0 0 0;
+  color: transparent;
+  transition: color .15s;
+}
+
+:host([os-theme="mac"]) .window-title-button::after {
+  line-height: 1;
+  display: inline;
+  vertical-align: 10%;
+}
+
+:host([hover][os-theme="mac"]) .window-title-button:hover
+:host([hover][os-theme="mac"]) .window-title-button:focus {
+  color: rgba(0, 0, 0, .3);
+}
+
+:host([os-theme="mac"]) .window-title-button__close {
+  background: var(--mac-window-title-bar-button-close-color);
+}
+
+:host([os-theme="mac"]) .window-title-button__close::after {
+  content: "⨉";
+}
+
+:host([os-theme="mac"]) .window-title-button__minimize {
+  background: var(--mac-window-title-bar-button-minimize-color);
+}
+
+:host([os-theme="mac"]) .window-title-button__minimize::after {
+  content: "–";
+}
+
+:host([os-theme="mac"]) .window-title-button__maximize {
+  background: var(--mac-window-title-bar-button-maximize-color);
+}
+
+:host([os-theme="mac"]) .window-title-button__maximize::after {
+  content: "+";
+}
+
+:host([os-theme="mac"]) .window-title-text {
+  line-height: 2.95;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  font-family: var(--mac-window-font);
+  padding: 0 3rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+:host([os-theme="mac"]) .window-content-slot-wrapper {
+  padding: 0 1rem .5rem 1rem;
+  font-family: var(--mac-window-font);
+  box-sizing: border-box;
+}
+
+:host([os-theme="mac"]) .window-content-slot-wrapper,
+:host([theme="light"][os-theme="mac"]) .window-content-slot-wrapper {
+  color: var(--mac-window-theme-light-font-color);
+  background: var(--mac-window-theme-light-background-color);
+}
+
+:host([theme="dark"][os-theme="mac"]) .window-content-slot-wrapper {
+  color: var(--mac-window-theme-dark-font-color);
+  background: var(--mac-window-theme-dark-background-color);
+}
+
+:host([os-theme="mac"]) .window-title-text,
+:host([theme="light"][os-theme="mac"]) .window-title-text {
+  color: var(--mac-window-theme-light-font-color);
+  background: var(--mac-window-theme-light-background-color);
+}
+
+:host([theme="dark"][os-theme="mac"]) .window-title-text {
+  color: var(--mac-window-theme-dark-font-color);
+  background: var(--mac-window-theme-dark-background-color);
+}
+
+:host([os-theme="mac"]) .window-title-bar,
+:host([theme="light"][os-theme="mac"]) .window-title-bar {
+  color: var(--mac-window-theme-light-font-color);
+  background: var(--mac-window-theme-light-background-color);
+}
+
+:host([theme="dark"][os-theme="mac"]) .window-title-bar {
+  color: var(--mac-window-theme-dark-font-color);
+  background: var(--mac-window-theme-dark-background-color);
+}
+/* }}} */
+
