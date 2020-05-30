@@ -31,6 +31,7 @@
             <select size="1" id="osThemeToggle">
               <option value="mac" selected>mac</option>
               <option value="win-xp">win-xp</option>
+              <option value="win-7">win-7</option>
             </select>
         </div>
         <script>
@@ -71,17 +72,23 @@
                 });
             });
         </script>
-        <os-window id="win-1" os-theme="" theme="dark" window-title="Dark window theme example with a long title">
-            Hello World
-        </os-window>
-        <os-window id="win-2" os-theme="win-xp" style="margin: 2rem;" theme="" window-title="Random Cat Pic">
+        <os-window id="win-1" os-theme="mac" theme="light" style="margin: 2rem;" theme="" window-title="Random Cat Pic">
           <img src="http://www.randomkittengenerator.com/cats/rotator.php">
         </os-window>
-        <os-window id="win-3" window-title="Light theme" os-theme="win-xp" theme="light">
-Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti. Mauris vitae lorem sapien. Duis ut sem suscipit, dignissim purus vitae, venenatis ante. Etiam ultrices sem id ligula mattis tristique hendrerit ut nisi. Duis ac enim interdum, aliquet libero vitae, accumsan nunc. Donec id felis non lacus aliquet ultrices.<!--}}}-->
+        <os-window id="win-2" os-theme="mac" theme="dark" style="margin: 2rem;" theme="dark" window-title="Random Cat Pic">
+          <img src="http://www.randomkittengenerator.com/cats/rotator.php">
         </os-window>
-        <os-window id="win-4" os-theme="win-xp" window-title="Dark win-xp theme" theme="dark">
-Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti. Mauris vitae lorem sapien. Duis ut sem suscipit, dignissim purus vitae, venenatis ante. Etiam ultrices sem id ligula mattis tristique hendrerit ut nisi. Duis ac enim interdum, aliquet libero vitae, accumsan nunc. Donec id felis non lacus aliquet ultrices.<!--}}}-->
+        <os-window id="win-1" os-theme="win-xp" theme="light" style="margin: 2rem;" theme="" window-title="Random Cat Pic">
+          <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+        </os-window>
+        <os-window id="win-2" os-theme="win-xp" style="margin: 2rem;" theme="dark" window-title="Random Cat Pic">
+          <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+        </os-window>
+        <os-window id="win-1" os-theme="win-7" theme="light" style="margin: 2rem;" hover theme="" window-title="Random Cat Pic">
+          <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+        </os-window>
+        <os-window id="win-2" os-theme="win-7" style="margin: 2rem;" hover theme="dark" window-title="Random Cat Pic">
+          <img src="http://www.randomkittengenerator.com/cats/rotator.php">
         </os-window>
         <script>
             customElements.whenDefined('os-window').then(() => {
@@ -103,15 +110,6 @@ Donec vitae diam ac tortor sollicitudin elementum a a lacus. Suspendisse potenti
                 document.querySelector('#win-1').addEventListener('osThemeChange', function (e) {
                     console.log('osTheme changed from "' + e.detail.oldOsTheme + '" to "' + e.detail.newOsTheme + '"');
                 });
-
-                var win3 = document.createElement('os-window');
-                win3.appendChild(document.createTextNode('window contents'));
-                win3.windowTitle="foo";
-                win3.theme = "light";
-                win3.windowState = 'minimized';
-                win3.hover = false;
-                win3.interactive = true;
-                document.body.appendChild(win3);
             })
         </script>
     </body>
