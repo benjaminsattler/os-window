@@ -60,6 +60,9 @@ describe('themes', () => {
   let winxp_default;
   let winxp_light;
   let winxp_dark;
+  let win7_default;
+  let win7_light;
+  let win7_dark;
 
   before((done) => {
     frame = quixote.createFrame({
@@ -78,14 +81,17 @@ describe('themes', () => {
 
   beforeEach(() => {
     default_default = frame.get('os-window:not([theme]):not([os-theme])');
-    default_light = frame.get('os-window[theme=light]:not([os-theme])');
-    default_dark = frame.get('os-window[theme=dark]:not([os-theme])');
-    mac_default = frame.get('os-window[os-theme=mac]:not([theme])');
-    mac_light = frame.get('os-window[os-theme=mac][theme=light]');
-    mac_dark = frame.get('os-window[os-theme=mac][theme=dark]');
-    winxp_default = frame.get('os-window[os-theme=win-xp]:not([theme])');
-    winxp_light = frame.get('os-window[os-theme=win-xp][theme=light]');
-    winxp_dark = frame.get('os-window[os-theme=win-xp][theme=dark]');
+    default_light = frame.get('os-window[theme="light"]:not([os-theme])');
+    default_dark = frame.get('os-window[theme="dark"]:not([os-theme])');
+    mac_default = frame.get('os-window[os-theme="mac"]:not([theme])');
+    mac_light = frame.get('os-window[os-theme="mac"][theme="light"]');
+    mac_dark = frame.get('os-window[os-theme="mac"][theme="dark"]');
+    winxp_default = frame.get('os-window[os-theme="win-xp"]:not([theme])');
+    winxp_light = frame.get('os-window[os-theme="win-xp"][theme="light"]');
+    winxp_dark = frame.get('os-window[os-theme="win-xp"][theme="dark"]');
+    win7_default = frame.get('os-window[os-theme="win-7"]:not([theme])');
+    win7_light = frame.get('os-window[os-theme="win-7"][theme="light"]');
+    win7_dark = frame.get('os-window[os-theme="win-7"][theme="dark"]');
   });
 
   describe('default os theme', () => {
@@ -659,6 +665,70 @@ describe('themes', () => {
           const slotWrapper = winxp_dark.toDomElement().__shadow.querySelector('.window-content-slot-wrapper');
           const foregroundColor = window.getComputedStyle(slotWrapper).getPropertyValue('color');
           chai.expect(foregroundColor).to.equal('rgb(0, 0, 0)');
+        });
+      });
+    });
+  });
+
+  describe('win-7 theme', () => {
+    describe('default theme', () => {
+      it('matches window-state default theme', () => {
+        assertWindowStyleEqual(win7_default, win7_light);
+      });
+    });
+
+    describe('light theme', () => {
+      describe('host', () => {
+        it('has the correct border color', () => {
+          const host = win7_light.toDomElement();
+          const backgroundColor = window.getComputedStyle(host).getPropertyValue('border-color');
+          chai.expect(backgroundColor).to.equal('rgb(36, 70, 103)');
+        });
+      });
+
+      describe('window-wrapper', () => {
+        it('has the correct background color', () => {
+          const windowWrapper = win7_light.toDomElement().__shadow.querySelector('.window-wrapper');
+          const backgroundColor = window.getComputedStyle(windowWrapper).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgba(161, 187, 215, 0.15)');
+        });
+      });
+
+      describe('window title button', () => {
+        it('has the correct font color', () => {
+          const windowTitleButtons = win7_light.toDomElement().__shadow.querySelectorAll('.window-title-button:not(.window-title-button__close)');
+          windowTitleButtons.forEach((windowTitleButton) => {
+            const backgroundColor = window.getComputedStyle(windowTitleButton, 'before').getPropertyValue('background-color');
+            chai.expect(backgroundColor).to.equal('rgb(93, 97, 113)');
+          });
+        });
+      });
+    });
+
+    describe('dark theme', () => {
+      describe('host', () => {
+        it('has the correct border color', () => {
+          const host = win7_dark.toDomElement();
+          const backgroundColor = window.getComputedStyle(host).getPropertyValue('border-color');
+          chai.expect(backgroundColor).to.equal('rgb(82, 82, 82)');
+        });
+      });
+
+      describe('window-wrapper', () => {
+        it('has the correct background color', () => {
+          const windowWrapper = win7_dark.toDomElement().__shadow.querySelector('.window-wrapper');
+          const backgroundColor = window.getComputedStyle(windowWrapper).getPropertyValue('background-color');
+          chai.expect(backgroundColor).to.equal('rgba(0, 0, 0, 0.35)');
+        });
+      });
+
+      describe('window title button', () => {
+        it('has the correct font color', () => {
+          const windowTitleButtons = win7_dark.toDomElement().__shadow.querySelectorAll('.window-title-button:not(.window-title-button__close)');
+          windowTitleButtons.forEach((windowTitleButton) => {
+            const backgroundColor = window.getComputedStyle(windowTitleButton, 'before').getPropertyValue('background-color');
+            chai.expect(backgroundColor).to.equal('rgb(93, 97, 113)');
+          });
         });
       });
     });
