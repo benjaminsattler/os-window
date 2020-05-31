@@ -21,7 +21,7 @@
     "lint": "eslint main.js lib test --ext .js,.ts",
     "dev": "python -m SimpleHTTPServer 8000",
     "test": "node ./test/runner.js",
-    "release": "np"
+    "release": "npm login && np"
   },
   "engines": {
     "node": ">= 10.0.0"
