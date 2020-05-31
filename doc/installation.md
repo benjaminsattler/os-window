@@ -46,7 +46,7 @@ This project is also published to the CDN unpkg, which enables you to skip any l
 
 ```html
 <!-- Include specific version (recommended) -->
-<script type="module" src="https://unpkg.com/os-window@0.2.3"></script>
+<script type="module" src="https://unpkg.com/os-window@0.2.4"></script>
 
 <!-- Include latest version (not recommended) -->
 <script type="module" src="https://unpkg.com/os-window"></script>
