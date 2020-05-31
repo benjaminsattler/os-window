@@ -203,6 +203,7 @@ An example of all available operating system theme settings is show in the image
 
 ![mac operating system theme (default)](./img/theme-mac.png)
 ![win-xp operating system theme (default)](./img/theme-win-xp.png)
+![win-7 operating system theme (default)](./img/theme-win-7.png)
 
 ```html
 <!-- default operating system theme -->
@@ -222,6 +223,11 @@ An example of all available operating system theme settings is show in the image
 <os-window
   os-theme="win-xp"
 ></os-window>
+
+<!-- win-7 operating system theme -->
+<os-window
+  os-theme="win-7"
+></os-window>
 ```
 
 You can change the operating system theme through JavaScript:
@@ -233,6 +239,8 @@ var win = document.createElement('os-window');
 win.osTheme = 'mac';
 // To change operating system theme to win-xp
 win.osTheme = 'win-xp';
+// To change operating system theme to win-7
+win.osTheme = 'win-7';
 
 // To read the operating system theme
 var osTheme = win.osTheme;
@@ -266,6 +274,11 @@ An example of all available combinations of light and dark mode with operating s
 
 ![light win-xp operating system theme (default)](./img/win-xp-light.png)
 ![dark win-xp operating system theme](./img/win-xp-dark.png)
+
+(**left:** light win-7 window theme (default), **right:** dark win-7 window theme)
+
+![light win-7 operating system theme (default)](./img/win-7-light.png)
+![dark win-7 operating system theme](./img/win-7-dark.png)
 ```html
 <!-- default theme -->
 <os-window></os-window>

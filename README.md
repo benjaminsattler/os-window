@@ -96,10 +96,31 @@ Similarly, here are two examples creating windows with light and dark win-xp the
 </os-window>
 ```
 
+Finally, here are two examples creating windows with light and dark win-7 theme:
+
+```html
+<os-window
+  window-title="Random Cat Pic"
+  os-theme="win-7"
+>
+  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+</os-window>
+
+<os-window
+  window-title="Random Cat Pic"
+  os-theme="win-7"
+  theme="dark"
+>
+  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+</os-window>
+```
+
 ![mac light theme](./doc/img/macos-light.png)
 ![mac dark theme](./doc/img/macos-dark.png)
 ![win-xp light theme](./doc/img/win-xp-light.png)
 ![win-xp dark theme](./doc/img/win-xp-dark.png)
+![win-7 light theme](./doc/img/win-7-light.png)
+![win-7 dark theme](./doc/img/win-7-dark.png)
 
 ## Requirements
 
@@ -114,7 +135,7 @@ Similarly, here are two examples creating windows with light and dark win-xp the
 ## Features
 
 - switch operating system designs
-  - currently supported themes: `macos` and `win-xp`
+  - currently supported themes: `macos`, `win-xp`, and `win-7`
 - switch between light &amp; dark themes
 - create non-interactive or interactive window frames
 - use any HTML as window contents
