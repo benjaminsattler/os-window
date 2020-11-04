@@ -140,7 +140,6 @@ describe('a11y', () => {
       chai.expect(shadowDom.querySelector('.window-title-button__maximize').getAttribute('aria-labelledby')).to.equal('window-title-button-maximize-label');
     });
 
-
     describe('for a maximized window', () => {
       it('correctly denotes the pressed state', () => {
         const shadowDom = sut.__shadow;
