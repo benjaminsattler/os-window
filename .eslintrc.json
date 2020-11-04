@@ -44,6 +44,9 @@
       "@typescript-eslint/no-unused-vars": 0,
       "@typescript-eslint/no-unused-vars-experimental": 2,
       "no-shadow": "off",
-      "@typescript-eslint/no-shadow": ["error"]
+      "@typescript-eslint/no-shadow": ["error"],
+      "linebreak-style": [
+        "error", "unix"
+      ]
     }
 }

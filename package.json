@@ -18,7 +18,7 @@
     "os-window"
   ],
   "scripts": {
-    "lint": "eslint main.js lib test --ext .js,.ts",
+    "lint": "eslint --no-fix main.js lib test --ext .js,.ts",
     "dev": "python -m SimpleHTTPServer 8000",
     "test": "node ./test/runner.js",
     "release": "npm login && np"
