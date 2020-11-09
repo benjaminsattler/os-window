@@ -39,7 +39,7 @@
     "main.js",
     "main.d.ts"
   ],
-  "homepage": "https://github.com/benjaminsattler/os-window",
+  "homepage": "https://os-window.benjaminsattler.net",
   "main": "main.js",
   "types": "main.d.ts",
   "author": {
