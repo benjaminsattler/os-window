@@ -59,7 +59,7 @@ This example creates a non-interactive window with light macos theme
 <os-window
   window-title="Random Cat Pic"
 >
-  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+  <img src="https://placekitten.com/250/250">
 </os-window>
 ```
 
@@ -73,7 +73,7 @@ The next example creates a fully interactive window with dark macos theme
   window-state="maximized"
   window-title="Random Cat Pic"
 >
-  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+  <img src="https://placekitten.com/250/250">
 </os-window>
 ```
 
@@ -84,7 +84,7 @@ Similarly, here are two examples creating windows with light and dark win-xp the
   window-title="Random Cat Pic"
   os-theme="win-xp"
 >
-  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+  <img src="https://placekitten.com/250/250">
 </os-window>
 
 <os-window
@@ -92,7 +92,7 @@ Similarly, here are two examples creating windows with light and dark win-xp the
   os-theme="win-xp"
   theme="dark"
 >
-  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+  <img src="https://placekitten.com/250/250">
 </os-window>
 ```
 
@@ -103,7 +103,7 @@ Finally, here are two examples creating windows with light and dark win-7 theme:
   window-title="Random Cat Pic"
   os-theme="win-7"
 >
-  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+  <img src="https://placekitten.com/250/250">
 </os-window>
 
 <os-window
@@ -111,7 +111,7 @@ Finally, here are two examples creating windows with light and dark win-7 theme:
   os-theme="win-7"
   theme="dark"
 >
-  <img src="http://www.randomkittengenerator.com/cats/rotator.php">
+  <img src="https://placekitten.com/250/250">
 </os-window>
 ```
 
