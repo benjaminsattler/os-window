@@ -1,6 +1,6 @@
-import { OsTheme } from './OsTheme';
-import { Theme } from './Theme';
-import { WindowState } from './WindowState';
+import { OsTheme } from './os-theme';
+import { Theme } from './theme';
+import { WindowState } from './window-state';
 
 export interface OsWindowObject extends HTMLElement {
   attributeChangedCallback(name: string, oldValue: string, newValue: string): void;

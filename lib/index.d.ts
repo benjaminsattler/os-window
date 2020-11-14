@@ -1,1 +1,1 @@
-export * from './OsWindow';
+export * from './os-window';

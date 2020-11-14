@@ -1,4 +1,4 @@
-import OsWindow from '../main';
+import OsWindow from '../main.js';
 
 describe('interface', () => {
   it('is defined as custom element', () => {
@@ -189,8 +189,8 @@ describe('interface', () => {
   describe('get supportedOsThemes', () => {
     it('returns an array of all supported os themes', () => {
       chai.expect(OsWindow.supportedOsThemes).to.be.a('Array');
-      chai.expect(OsWindow.supportedOsThemes).to.have.lengthOf(2);
-      chai.expect(OsWindow.supportedOsThemes).to.include.members(['mac', 'win-xp']);
+      chai.expect(OsWindow.supportedOsThemes).to.have.lengthOf(3);
+      chai.expect(OsWindow.supportedOsThemes).to.include.members(['mac', 'win-xp', 'win-7']);
     });
   });
 
