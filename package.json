@@ -33,12 +33,6 @@
   "bugs": {
     "url": "https://github.com/benjaminsattler/os-window/issues"
   },
-  "files": [
-    "lib/**/*.js",
-    "lib/**/*.d.ts",
-    "main.js",
-    "main.d.ts"
-  ],
   "homepage": "https://os-window.benjaminsattler.net",
   "main": "main.js",
   "types": "main.d.ts",

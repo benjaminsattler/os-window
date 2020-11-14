@@ -1,0 +1,6 @@
+/*
+
+!lib/**/*.js
+lib/**/*.d.ts
+!main.js
+!main.d.ts
