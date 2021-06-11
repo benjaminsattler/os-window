@@ -42,7 +42,9 @@ function assertWindowStyleEqual(win1, win2) {
   assertWindowTitlebarStyleEqual(win1, win2);
 }
 
-describe('themes', () => {
+describe('themes', function themes() {
+  this.timeout(15000);
+
   let frame;
 
   // the following variables reference an os-window element.
